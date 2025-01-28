@@ -1,5 +1,5 @@
 // src/components/ResultPage.js
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchVehicleModels } from "../store/Slice/filterSlice";
@@ -10,7 +10,8 @@ const ResultPage = () => {
    const { models, loadingModels, error } = useSelector(
       (state) => state.filter
    );
-   const makeName = models[0].Make_Name;
+   let makeName;
+   models[0].Make_Name ? (makeName = models[0].Make_Name) : (makeName = "");
 
    useEffect(() => {
       dispatch(fetchVehicleModels({ makeId, year }));
@@ -20,7 +21,7 @@ const ResultPage = () => {
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
          <div className="max-w-lg w-full bg-white shadow-md rounded-lg p-6">
             <h1 className="text-2xl font-bold text-gray-800 mb-4">
-               Vehicle Models for {makeName} in {year}
+               Vehicle Models {makeName} for in {year}
             </h1>
 
             {loadingModels && <p>Loading vehicle models...</p>}

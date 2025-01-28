@@ -4,9 +4,7 @@ import axios from "axios";
 export const fetchVehicleMakes = createAsyncThunk(
    "filter/fetchVehicleMakes",
    async () => {
-      const response = await axios.get(
-         "https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json"
-      );
+      const response = await axios.get(import.meta.env.VITE_VEHICLE_MAKES_API);
       return response.data.Results;
    }
 );
@@ -15,7 +13,9 @@ export const fetchVehicleModels = createAsyncThunk(
    "filter/fetchVehicleModels",
    async ({ makeId, year }) => {
       const response = await axios.get(
-         `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeIdYear/makeId/${makeId}/modelyear/${year}?format=json`
+         `${
+            import.meta.env.VITE_VEHICLE_MODELS_API
+         }/${makeId}/modelyear/${year}?format=json`
       );
       return response.data.Results;
    }
