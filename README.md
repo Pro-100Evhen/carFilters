@@ -40,11 +40,14 @@ Open the application in your browser at http://localhost:5173.
 # 5. Build the Project for Production
 npm run build
 
-# Notes
-    React Instead of Next.js: The project was implemented using React instead of Next.js due to the developer’s familiarity with React and lack of experience with Next.js.
-    Suspense Component: React's Suspense component was not used in this project. Since Redux Toolkit handles state management effectively, Suspense was deemed unnecessary.
-    Environment Variables: Unlike Next.js, Vite uses import.meta.env syntax for environment variables. Make sure to adjust any configurations accordingly.
-    Navigation Convenience: A "Return to Home" button was added for better user experience.
+## Notes
+
+| Feature                                          | Description                                                              |
+|--------------------------------------------------|--------------------------------------------------------------------------|
+| **React Instead of Next.js**                       | Implemented using React due to developer familiarity and lack of Next.js experience. |
+| **Suspense Component**                             | Not used. Redux Toolkit handles state management effectively.                           |
+| **Environment Variables**                         | Vite uses import.meta.env syntax for environment variables. Adjust configurations accordingly. |
+| **Navigation Convenience**                        | Includes a "Return to Home" button for better user experience.                     |
 
 # Commands Summary
 | Command | Description |
