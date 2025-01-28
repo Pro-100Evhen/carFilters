@@ -7,7 +7,7 @@ export const fetchVehicleMakes = createAsyncThunk(
       const response = await axios.get(
          "https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json"
       );
-      return response.data.Makes;
+      return response.data.Results;
    }
 );
 
@@ -24,7 +24,7 @@ export const fetchVehicleModels = createAsyncThunk(
 const filterSlice = createSlice({
    name: "filter",
    initialState: {
-      makes: [],
+      makes: [], // Тепер `makes` завжди масив
       models: [],
       make: "",
       year: "",
@@ -52,7 +52,7 @@ const filterSlice = createSlice({
          })
          .addCase(fetchVehicleMakes.fulfilled, (state, action) => {
             state.loadingMakes = false;
-            state.makes = action.payload;
+            state.makes = action.payload; // Записуємо лише масив Results
          })
          .addCase(fetchVehicleMakes.rejected, (state, action) => {
             state.loadingMakes = false;
