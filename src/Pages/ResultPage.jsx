@@ -9,8 +9,7 @@ const ResultPage = () => {
    const { models, loadingModels, error } = useSelector(
       (state) => state.filter
    );
-   let makeName;
-   models[0].Make_Name ? (makeName = models[0].Make_Name) : (makeName = '');
+   const makeName = models?.[0]?.Make_Name || '';
 
    useEffect(() => {
       dispatch(fetchVehicleModels({ makeId, year }));
