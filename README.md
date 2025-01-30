@@ -1,4 +1,6 @@
-# CarFilters Application
+# After completing the assignment, I thought it would be appropriate to demonstrate my knowledge of TypeScript, so please evaluate the project here: https://github.com/Pro-100Evhen/carFiltersTs .
+
+
 
 ## Overview
 
